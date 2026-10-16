@@ -1,3 +1,4 @@
+![BzH-Punish Banner](assets/bzh-punish-banner.svg)
 <div align="center">
   <img src="assets/bzh-punish-banner.svg" alt="BzH-Punish — Advanced Minecraft Moderation" width="100%" />
   <br />
