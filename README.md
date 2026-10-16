@@ -1,140 +1,118 @@
-# BzH-Punish
-
-### Advanced Punishment & Moderation System for Minecraft Servers
-
-**Take control of moderation with BzH-Punish!**
-
-BzH-Punish is a Minecraft server moderation plugin designed to help staff teams manage punishments, review player histories, organize punishment templates, and maintain a consistent moderation workflow.
-
-Featuring configurable storage options, moderation commands, and a Java API, BzH-Punish brings essential punishment tools together in one plugin.
-
----
-
-## 📑 Table of Contents
-
-- [Features](#-features)
-- [Requirements](#-requirements)
-- [Installation](#-installation)
-- [Configuration](#️-configuration)
-- [Commands](#-commands)
-- [Permissions](#-permissions)
-- [Storage Setup](#️-storage-setup)
-- [Multi-Server Setup](#-multi-server-setup)
-- [Developer Information](#-developer-information)
-- [Support and Bug Reports](#-support-and-bug-reports)
-- [Credits](#-credits)
+<div align="center">
+  <img src="assets/bzh-punish-banner.svg" alt="BzH-Punish — Advanced Minecraft Moderation" width="100%" />
+  <br />
+  <p><strong>Advanced punishment, moderation, and security tools for Minecraft servers.</strong></p>
+  <p>
+    <a href="../../releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/BzH-Community/BzH-Punish?style=for-the-badge&logo=github&color=8b5cf6" /></a>
+    <img alt="Java 17+" src="https://img.shields.io/badge/Java-17%2B-f59e0b?style=for-the-badge&logo=openjdk&logoColor=white" />
+    <img alt="Paper API 1.20.6" src="https://img.shields.io/badge/Paper_API-1.20.6-22c55e?style=for-the-badge" />
+    <img alt="License" src="https://img.shields.io/badge/License-See_Repository-64748b?style=for-the-badge" />
+  </p>
+  <p>
+    <a href="../../releases">⬇️ Download</a> ·
+    <a href="#-features">✨ Features</a> ·
+    <a href="#-installation">🚀 Installation</a> ·
+    <a href="#-commands">⌨️ Commands</a> ·
+    <a href="#-support">🛠️ Support</a>
+  </p>
+</div>
 
 ---
+
+## Overview
+
+**BzH-Punish** is a moderation toolkit built for Minecraft server staff who need a consistent way to manage punishments, investigate player activity, and maintain server rules. It brings punishment commands, reusable templates, player history, freeze tools, security monitoring, and flexible storage into one plugin.
+
+> **Built for staff. Designed for control. Made to scale.**
 
 ## ✨ Features
 
-### ⚖️ Punishment Management
-
-- Ban and temporary ban management.
-- Mute and temporary mute management.
-- Player warnings and warning removal.
-- Kick players with a specified reason.
-- IP bans and IP mutes.
-- Unban, unmute, IP unban, and IP unmute tools.
-- Punishment removal utilities.
-
-### 📋 Punishment Templates
-
-- Create reusable punishment templates.
-- List available templates.
-- View template details.
-- Apply templates to players.
-- Delete and reload templates.
-- Manage template-related permissions.
-
-### 📚 Punishment History
-
-- View player punishment histories.
-- Navigate history using pages.
-- Configure default and maximum history page sizes.
-- Clear player histories with appropriate permissions.
-
-### ❄️ Player Freeze Tools
-
-- Freeze players during investigations.
-- Support duration-based or permanent freezes where configured.
-- Unfreeze players when an investigation is complete.
-
-### 🗄️ Flexible Data Storage
-
-- SQLite storage for straightforward single-server setups.
-- MySQL storage as an alternative backend.
-- Optional synchronization for supported punishment states across servers using a shared MySQL database.
-
-### 🛡️ Security and Staff Tools
-
-- Security monitoring and staff notifications.
-- Configurable security logging and monitoring thresholds.
-- IP whitelist management through security commands.
-- Configurable punishment broadcasts.
-- Configuration reload commands.
-
-### 🔌 Developer API
-
-- Java API for punishment-related integrations.
-- Custom punishment and unpunishment events.
-- Extensibility for developers integrating moderation features into other plugins.
-
----
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>⚖️ Punishment Management</h3>
+      Ban, temporary ban, mute, temporary mute, warn, kick, IP ban, IP mute, and their supported removal commands.
+    </td>
+    <td width="50%" valign="top">
+      <h3>📋 Reusable Templates</h3>
+      Create and manage punishment templates, inspect template details, and apply consistent staff actions.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>📚 Player History</h3>
+      Review punishment history with pagination and configurable history limits; clear history with permission.
+    </td>
+    <td width="50%" valign="top">
+      <h3>❄️ Investigation Freeze</h3>
+      Freeze players during investigations and unfreeze them when staff work is complete.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🗄️ Flexible Storage</h3>
+      Choose SQLite for a straightforward setup or MySQL for database-backed deployments.
+    </td>
+    <td width="50%" valign="top">
+      <h3>🛡️ Security Monitoring</h3>
+      Security flags, staff notifications, logging, configurable thresholds, and IP whitelist management.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🌐 Optional Network Sync</h3>
+      Shared-MySQL synchronization for supported punishment states across participating Paper servers.
+    </td>
+    <td width="50%" valign="top">
+      <h3>🔌 Developer API</h3>
+      API access and custom events for integrations with other plugins.
+    </td>
+  </tr>
+</table>
 
 ## 📦 Requirements
 
-- Java 17 or a compatible newer Java runtime.
-- A Minecraft server version compatible with the plugin's API requirements.
-- Built against Paper API 1.20.6.
-
-> **Compatibility Notice:** The current project targets Paper API 1.20.6. Compatibility with other Minecraft versions and server implementations should be verified before use.
-
----
+- **Java:** 17 or newer compatible runtime
+- **Server API target:** Paper API 1.20.6
+- **Server compatibility:** The project declares Minecraft API version `1.20`; test your specific server software and version before production use.
 
 ## 🚀 Installation
 
-1. Download the latest BzH-Punish JAR from the project's [Releases](../../releases) page.
+1. Download the latest `.jar` from **[Releases](../../releases)**.
 2. Stop your Minecraft server.
-3. Place the JAR file inside your server's `plugins` directory.
-4. Start the server.
-5. Open `plugins/BzH-Punish/config.yml`.
-6. Review the configuration and select your preferred storage backend.
-7. Configure staff permissions using your permissions management plugin.
-8. Test the commands and verify the console output.
+3. Put the JAR in the server's `plugins/` directory.
+4. Start the server and wait for plugin initialization.
+5. Review the generated files in `plugins/BzH-Punish/`, including `config.yml`.
+6. Configure permissions for your staff roles.
+7. Test moderation commands and database persistence on a test server before deploying to production.
 
-Always back up your server and test new releases before deploying them on a production server.
-
----
+**Updating:** Back up your configuration and database before replacing an existing version.
 
 ## ⚙️ Configuration
 
-BzH-Punish provides configurable settings for its moderation and storage systems.
+BzH-Punish generates a configuration with options covering the following areas:
 
-Depending on the selected features, settings include:
-
-- Storage backend selection: SQLite or MySQL.
-- Punishment broadcast settings.
-- Ban-related player handling.
-- Warning notifications.
-- Command cooldowns.
-- History pagination limits.
-- Date and time formatting.
-- Automatic cleanup settings.
-- Security monitoring and staff notifications.
-- Optional multi-server synchronization.
-
-Review the generated configuration files for the exact available options and default values. Back up your configuration before making changes.
-
----
-
-## 🧭 Commands
-
-The main command is `/bpunish`.
-
-| Command | Description |
+| Area | Available settings |
 |---|---|
-| `/bpunish` | Display available commands |
+| Storage | SQLite or MySQL connection settings |
+| Punishments | Ban-related player handling, broadcasts, and default reason |
+| Warnings | Target notifications, warning count display, and maximum warning setting |
+| Cooldowns | Enable/disable and duration |
+| History | Default and maximum page limits |
+| Date & time | Date format and timezone |
+| Cleanup | Enable/disable and cleanup interval |
+| Security | Staff notifications, file logging, IP-change threshold, and accounts-per-IP threshold |
+| Network | Optional shared-MySQL synchronization and polling interval |
+
+Use the generated configuration as the source of truth for exact keys and defaults. **Never publish database passwords or other secrets.**
+
+## ⌨️ Commands
+
+The main command is `/bpunish`. The plugin also registers convenient standalone aliases.
+
+| Command | Purpose |
+|---|---|
+| `/bpunish` | Show command help |
 | `/bpunish ban <player> <time> <reason>` | Ban a player |
 | `/bpunish mute <player> <time> <reason>` | Mute a player |
 | `/bpunish warn <player> <reason>` | Warn a player |
@@ -148,26 +126,25 @@ The main command is `/bpunish`.
 | `/bpunish ipunmute <ip>` | Remove an IP mute |
 | `/bpunish history <player> [page]` | View punishment history |
 | `/bpunish clearhistory <player>` | Clear punishment history |
-| `/bpunish unpunish <player> <template>` | Remove a supported punishment |
-| `/bpunish freeze <player> [duration\|perm] [reason]` | Freeze a player |
+| `/bpunish unpunish <player> <template>` | Remove a supported punishment via template |
+| `/bpunish freeze <player> [reason]` | Freeze a player |
 | `/bpunish unfreeze <player>` | Unfreeze a player |
-| `/bpunish reload` | Reload configuration |
-| `/bpunish security` | Access security tools |
-| `/bpunish template` | Access template tools |
+| `/bpunish reload` | Reload plugin configuration |
+| `/bpunish security` | Open security tools |
+| `/bpunish template` | Open template tools |
+| `/punish <player> <template> [reason]` | Apply a punishment template |
 
-Standalone aliases may also be available, including `/ban`, `/mute`, `/warn`, `/kick`, `/history`, `/unban`, `/unmute`, `/freeze`, and `/unfreeze`.
+**Aliases:** `/bzhpunish`, `/bp`, `/ban`, `/mute`, `/ipban`, `/ipmute`, `/history`, `/unpunish`, `/warn`, `/kick`, `/unban`, `/unmute`, `/unwarn`, `/ipunban`, `/ipunmute`, `/clearhistory`, `/security`, `/freeze`, and `/unfreeze`.
 
-> **Important:** Consult in-game help and tab completion for the exact syntax supported by your installed version.
-
----
+> Command syntax can vary by subcommand and version. Use `/bpunish` and in-game tab completion to confirm the syntax available on your server.
 
 ## 🔐 Permissions
 
-The plugin uses the `bzhpunish.*` permission namespace.
+Permissions are registered under the `bzhpunish.*` namespace. By default, most moderation permissions are operator-only.
 
 | Permission | Purpose |
 |---|---|
-| `bzhpunish.*` | Main permission wildcard |
+| `bzhpunish.*` | Main wildcard; grants the listed child permissions |
 | `bzhpunish.ban` | Ban players |
 | `bzhpunish.mute` | Mute players |
 | `bzhpunish.warn` | Warn players |
@@ -192,84 +169,72 @@ The plugin uses the `bzhpunish.*` permission namespace.
 | `bzhpunish.template.reload` | Reload templates |
 | `bzhpunish.security` | Access security commands |
 | `bzhpunish.security.notify` | Receive security notifications |
-| `bzhpunish.notify` | Receive punishment broadcasts |
 | `bzhpunish.admin` | Administrative access |
+| `bzhpunish.notify` | Receive punishment broadcasts |
 | `bzhpunish.template.*` | Template permission wildcard |
 | `bzhpunish.unpunish.template.*` | Template-based unpunish wildcard |
 
-Review `plugin.yml` and the command implementation to verify every permission, wildcard, and default before assigning staff roles.
-
----
+Assign only the permissions each staff role needs. Review `plugin.yml` and test permission behavior before using these nodes on a production server.
 
 ## 🗄️ Storage Setup
 
 ### SQLite
 
-SQLite is intended for a straightforward single-server setup.
-
-Use the generated configuration as the source of truth for the available options and default database filename.
+SQLite is the simplest starting point for a single-server setup. The default configuration uses SQLite and stores data in `punishments.db`.
 
 ### MySQL
 
-To use MySQL:
-
 1. Create a database and a dedicated database user.
-2. Configure the connection details in the generated configuration.
-3. Ensure the database server is reachable from the Minecraft server.
-4. Restart the server and verify successful database initialization.
+2. Set the host, port, database name, username, and password in `config.yml`.
+3. Ensure the Minecraft server can reach the database host.
+4. Restart the server and check the console for database initialization errors.
 5. Test persistence by restarting the server and checking punishment records.
 
-Never publish database passwords or other private credentials.
-
----
+Do not commit a configuration containing real credentials to a public repository.
 
 ## 🌐 Multi-Server Setup
 
-BzH-Punish includes an optional synchronization setting intended for supported multi-server deployments using a shared MySQL database.
+An optional network synchronization setting is provided for supported deployments using a shared MySQL database, such as multiple Paper backends behind Velocity.
 
-Before enabling it:
+1. Configure each participating server to use the same intended MySQL database.
+2. Verify database connectivity and permissions from every backend.
+3. Enable the `network` setting in each server's configuration and review `poll-seconds`.
+4. Test punishment creation and removal across the network.
+5. Monitor server logs for synchronization or database errors.
 
-1. Configure each backend to use the intended shared database.
-2. Verify connectivity and database permissions.
-3. Review the synchronization settings.
-4. Test punishment creation and removal across all participating servers.
-5. Monitor the console for database and synchronization errors.
+Network synchronization is limited to supported states and behaviors. Verify each workflow in your environment rather than assuming every plugin action is synchronized.
 
-Do not assume every plugin state or action is synchronized unless it has been verified.
+## 🧑‍💻 Developer API
 
----
+The project includes API/event classes for integrations:
 
-## 🧑‍💻 Developer Information
+- `com.bzh.punish.api.BzHPunishAPI`
+- `com.bzh.punish.api.event.PlayerPunishEvent`
+- `com.bzh.punish.api.event.PlayerUnpunishEvent`
 
-BzH-Punish includes Java API components and punishment-related custom events.
+Refer to the source code for exact method signatures, event properties, and integration details.
 
-The project contains the following API/event classes:
+## 🛠️ Support
 
-- `BzHPunishAPI`
-- `PlayerPunishEvent`
-- `PlayerUnpunishEvent`
+When opening a bug report, include:
 
-Consult the source code for exact method signatures, event properties, and integration instructions.
+- Minecraft server software and version
+- Java version
+- BzH-Punish version
+- Relevant console errors or stack traces
+- Steps to reproduce the issue
+- Relevant configuration with passwords and other secrets removed
 
----
-
-## 🐛 Support and Bug Reports
-
-When reporting a bug, include:
-
-- Minecraft server software and version.
-- Java version.
-- BzH-Punish version.
-- Relevant console errors or stack traces.
-- Steps to reproduce the issue.
-- Relevant configuration with passwords and other secrets removed.
-
-Please provide clear reproduction steps to help identify and resolve problems efficiently.
-
----
+Please do not include database passwords, tokens, private player information, or other sensitive data in issues.
 
 ## ❤️ Credits
 
 Developed by **BzH-Community**.
 
-Thank you for checking out BzH-Punish! Feedback, bug reports, and suggestions are welcome.
+Thanks for checking out BzH-Punish! Feedback, bug reports, and suggestions are welcome.
+
+---
+
+<div align="center">
+  <sub>Made for better moderation workflows · BzH-Community</sub>
+</div>
